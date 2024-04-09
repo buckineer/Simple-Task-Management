@@ -1,0 +1,60 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(244, 247, 255)
+}
+
+input:checked ~ .dot {
+  @apply translate-x-full bg-primary;
+}
+
+input:checked ~ .dot .active {
+  @apply block;
+}
+
+input:checked ~ .dot .inactive {
+  @apply hidden;
+}
+
+input:checked ~ .box {
+  @apply border-primary;
+}
+
+
+.outline-checkbox:checked ~ label, .outline-checkbox:checked ~ .box{
+    @apply border-primary text-primary
+}
+input[type="checkbox"]:checked ~ .box span {
+    opacity: 1;
+}
