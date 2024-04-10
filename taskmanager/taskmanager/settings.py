@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
-    'webpack_loader',
+    'corsheaders',    
     'tasks'
 ]
 
@@ -142,8 +141,8 @@ REST_FRAMEWORK = {
 # CORS Configuration
 # Set the with value of environment variable separated by space.
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = config('DJANGO_CORS_ALLOWED_ORIGINS',
-                              cast=lambda v: [s.strip() for s in v.split(' ')])
+CORS_ALLOWED_ORIGINS = config('DJANGO_CORS_ALLOWED_ORIGINS', default=None,
+                              cast=lambda v: [s.strip() for s in v.split(' ')] if v is not None else [])
 
 
 # React Integration
