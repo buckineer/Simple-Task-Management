@@ -1,5 +1,5 @@
 # Pull base image
-FROM python:3.10-alpine
+FROM python:3.10
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -22,6 +22,6 @@ RUN pip install gunicorn
 # Copy project
 COPY . /code/
 
-RUN python manage.py migrate
 # Run the application on port 8000
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "taskmanager.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:443", "taskmanager.wsgi:application"]
+
