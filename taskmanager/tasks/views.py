@@ -14,9 +14,8 @@ class TaskViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.OrderingFilter, DjangoFilterBackend, filters.SearchFilter]
 
     def get_queryset(self):
-        # Override the get_queryset method to filter tasks based on the logged-in user
-        user = User.objects.get(username=self.request.user)
-        return Task.objects.filter(user=user)
+        # Override the get_queryset method to filter tasks based on the logged-in user        
+        return Task.objects.filter(user=self.request.user)
 
     def perform_create(self, serializer):
         # Override the perform_create method to save the logged-in user as the owner of a task when it's created
