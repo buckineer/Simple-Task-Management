@@ -39,7 +39,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/Ambitiont109/DoctusTech.git
+   git clone [repository_url]
    ```
 2. Navigate to the backend(taskmanager) directory and install the dependencies:
    ```
